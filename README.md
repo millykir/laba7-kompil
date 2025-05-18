@@ -310,11 +310,9 @@ dot -Tpng .main.dot -o cfg_sum.png
 xdg-open cfg_sum.png
 ```
 
-![Clang2](./readMe/image_copy_13.png)
-
 📸 *Скриншот 14*: `cfg_sum.png` — видно, что блоков стало меньше, и они линейнее.
 
-![Clang2](./readMe/image_copy_14.png)
+![Clang2](./readMe/image_copy_13.png)
 
 ---
 
