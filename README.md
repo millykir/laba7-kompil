@@ -75,7 +75,7 @@ int main() {
 
 📸 *Скриншот 2*: содержимое `main.c`.
 
-![Clang2](./readMe/image copy.png)
+![Clang2](./readMe/image_copy.png)
 
 ---
 
@@ -103,7 +103,7 @@ clang -Xclang -ast-dump -fsyntax-only main.c
 
 📸 *Скриншот 3*: пример начинающих 15–20 строк AST, чтобы было видно структуру.
 
-![Clang2](./readMe/image copy 2.png)
+![Clang2](./readMe/image_copy_2.png)
 
 ---
 
@@ -130,7 +130,7 @@ clang -S -emit-llvm main.c -o main.ll
 
 📸 *Скриншот 4*: первые 20 строк файла `main.ll`.
 
-![Clang2](./readMe/image copy 3.png)
+![Clang2](./readMe/image_copy_3.png)
 
 ---
 
@@ -147,7 +147,7 @@ clang -O0 -S -emit-llvm main.c -o main_O0.ll
 
 📸 *Скриншот 5*: первые 15 строк `main_O0.ll`.
 
-![Clang2](./readMe/image copy 4.png)
+![Clang2](./readMe/image_copy_4.png)
 
 ### 5.2. IR с оптимизацией -O2
 
@@ -172,11 +172,11 @@ clang -O2 -S -emit-llvm main.c -o main_O2.ll
 
 📸 *Скриншот 6*: первые 15 строк `main_O2.ll`.
 
-![Clang2](./readMe/image copy 5.png)
+![Clang2](./readMe/image_copy_5.png)
 
 📸 *Скриншот 7*: вывод `diff main_O0.ll main_O2.ll` с ключевыми удалёнными и добавленными строками.
 
-![Clang2](./readMe/image copy 6.png)
+![Clang2](./readMe/image_copy_6.png)
 
 ---
 
@@ -197,7 +197,7 @@ opt -dot-cfg -disable-output main_O2.ll
 
 📸 *Скриншот 7.1*: ввод команды`.
 
-![Clang2](./readMe/image copy 6.1.png)
+![Clang2](./readMe/image_copy_6.1.png)
 
 ### 6.2. Конвертация в PNG
 
@@ -213,11 +213,11 @@ xdg-open cfg_main.png
 
 📸 *Скриншот 8*: первые 10 строк `.main.dot`.
 
-![Clang2](./readMe/image copy 7.png)
+![Clang2](./readMe/image_copy_7.png)
 
 📸 *Скриншот 9*: визуализация `cfg_main.png`.
 
-![Clang2](./readMe/image copy 8.png)
+![Clang2](./readMe/image_copy_8.png)
 
 ---
 
@@ -262,7 +262,7 @@ int main() {
 
 📸 *Скриншот 10*: содержимое `sum.c`.
 
-![Clang2](./readMe/image copy 9.png)
+![Clang2](./readMe/image_copy_9.png)
 
 ### 8.2. IR до оптимизации
 
@@ -272,7 +272,7 @@ clang -O0 -S -emit-llvm sum.c -o sum_O0.ll
 
 📸 *Скриншот 11*: первые 15 строк `sum_O0.ll`.
 
-![Clang2](./readMe/image copy 10.png)
+![Clang2](./readMe/image_copy_10.png)
 
 ### 8.3. Применение дополнительных оптимизаций
 
@@ -286,7 +286,7 @@ opt -S -loop-unroll -licm -dse sum_O0.ll -o sum_custom.ll
 
 📸 *Скриншот 12*: первые 15 строк `sum_custom.ll`.
 
-![Clang2](./readMe/image copy 11.png)
+![Clang2](./readMe/image_copy_11.png)
 
 ### 8.4. Сравнение IR
 
@@ -296,7 +296,7 @@ diff sum_O0.ll sum_custom.ll
 
 📸 *Скриншот 13*: ключевые отличия:
 
-![Clang2](./readMe/image copy 12.png)
+![Clang2](./readMe/image_copy_12.png)
 
 * Удалены лишние `store` в теле цикла;
 * Цикл частично развёрнут (если LLVM оценил, что `n=5` константа и допустимо полностью развернуть);
@@ -310,11 +310,11 @@ dot -Tpng .main.dot -o cfg_sum.png
 xdg-open cfg_sum.png
 ```
 
-![Clang2](./readMe/image copy 13.png)
+![Clang2](./readMe/image_copy_13.png)
 
 📸 *Скриншот 14*: `cfg_sum.png` — видно, что блоков стало меньше, и они линейнее.
 
-![Clang2](./readMe/image copy 14.png)
+![Clang2](./readMe/image_copy_14.png)
 
 ---
 
